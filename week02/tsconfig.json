@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "CommonJS",
+    "rootDir": "./src",        // 타입스크립트 소스 경로
+    "outDir": "./dist",        // 컴파일 결과 저장 경로
+    "strict": true,
+    "esModuleInterop": true,
+    "declaration": false,      // .d.ts 파일 안 만들기
+    "sourceMap": false         // .js.map 파일 안 만들기
+  }
+}
