@@ -1,0 +1,47 @@
+:root {
+  --font-inter: "Inter", sans-serif;
+  --font-lora: "Lora", serif;
+  --color-text: #3e3e3e;
+  --color-primary: #00462A;
+  --color-accent: #00944a;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-inter);
+  line-height: 1.6;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.header {
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  padding: 1.2rem 2rem;
+}
+
+.nav {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  font-family: var(--font-lora);
+}
+
+.nav a:hover {
+  color: var(--color-accent);
+  transition: 0.2s ease;
+}
+
+.main {
+  padding: 3rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
