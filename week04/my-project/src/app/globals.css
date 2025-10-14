@@ -1,0 +1,80 @@
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'Ubuntu', 'Noto Sans KR', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #feeeff;
+  border-bottom: 1px solid #fdddff;
+}
+
+.nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.main {
+  padding: 2rem;
+}
+
+.footer {
+  text-align: center;
+  padding: 1rem;
+  border-top: 1px solid #fdddff;
+  color: #fccdff;
+  background-color: #fafafa;
+}
+
+.nav a {
+  text-decoration: none;
+  color: inherit;
+  transition: font-weight 0.2s ease;
+}
+
+.nav a:hover,
+.nav a:focus,
+.nav a:active {
+  font-weight: 700;
+}
