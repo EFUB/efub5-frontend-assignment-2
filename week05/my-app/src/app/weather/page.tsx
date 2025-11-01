@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import styled, { keyframes } from "styled-components";
 import { FaRegSmileBeam } from "react-icons/fa";
@@ -133,7 +133,7 @@ function TimeWeatherPage() {
   };
 
   // 랜덤 운세 생성
-  const generateFortune = () => {
+  const generateFortune = useCallback(() => {
     const categoryFortunes = fortunes[category] || []; // category가 없으면 빈 배열로 설정
     if (categoryFortunes.length === 0) {
       setFortune("운세 데이터를 불러올 수 없습니다. 카테고리를 다시 선택해주세요.");
@@ -141,12 +141,12 @@ function TimeWeatherPage() {
     }
     const randomFortune = categoryFortunes[Math.floor(Math.random() * categoryFortunes.length)];
     setFortune(randomFortune);
-  };
+  }, [category, fortunes]);
 
   // 초기 운세 설정
   useEffect(() => {
     generateFortune();
-  }, [category]);
+  }, [category, generateFortune]);
 
   return (
     <PageContainer>

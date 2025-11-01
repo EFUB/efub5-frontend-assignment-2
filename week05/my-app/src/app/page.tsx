@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import TodoTemplate from "@components/TodoTemplate";
+import TodoTemplate, { Todo } from "@components/TodoTemplate";
 import styled, { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
@@ -52,14 +52,22 @@ const Navigation = styled.nav`
 `;
 
 function App() {
-  const [todos, setTodos] = useState(() => {
-    const savedTodos = localStorage.getItem("todos");
-    return savedTodos ? JSON.parse(savedTodos) : [];
-  });
+  const [todos, setTodos] = useState<Todo[]>([]);
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]);
+    setIsClient(true);
+    const savedTodos = localStorage.getItem("todos");
+    if (savedTodos) {
+      setTodos(JSON.parse(savedTodos));
+    }
+  }, []);
+
+  useEffect(() => {
+    if (isClient) {
+      localStorage.setItem("todos", JSON.stringify(todos));
+    }
+  }, [todos, isClient]);
 
   return (
     <>

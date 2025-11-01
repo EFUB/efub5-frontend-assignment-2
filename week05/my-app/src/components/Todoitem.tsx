@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState, useCallback } from "react";
+import React, { useCallback } from "react";
 import styled from "styled-components";
-import { MdDone, MdEdit, MdClose } from "react-icons/md";
+import { MdDone, MdClose } from "react-icons/md";
 import { Todo } from "@components/TodoTemplate";
 
 interface TodoItemProps {
@@ -52,45 +52,6 @@ const Text = styled.div<{ $done: boolean }>`
   text-decoration: ${props => props.$done ? 'line-through' : 'none'};
   transition: color 0.2s;
   word-break: break-word;
-`;
-
-const ActionButtons = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-const ActionButton = styled.button<{ 
-  color?: string; 
-  $hoverBg?: string; 
-  $hoverColor?: string; 
-}>`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: ${(props) => props.color || "#cbd5e1"};
-  font-size: 18px;
-  background: transparent;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  margin-left: 4px;
-  transition: all 0.2s;
-  &:hover {
-    background: ${(props) => props.$hoverBg || "#f1f5f9"}; // $hoverBg로 변경
-    color: ${(props) => props.$hoverColor || props.color || "#4a5568"}; // $hoverColor로 변경
-  }
-`;
-
-const EditInput = styled.input`
-  flex: 1;
-  font-size: 16px;
-  border: none;
-  border-bottom: 2px solid #6366f1;
-  outline: none;
-  margin-right: 12px;
-  padding: 8px 4px;
-  color: #2d3748;
-  background: transparent;
 `;
 
 // 휴지통 이모지 버튼

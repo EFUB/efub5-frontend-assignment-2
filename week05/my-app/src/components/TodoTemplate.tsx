@@ -73,7 +73,7 @@ function TodoTemplate({ todos, setTodos }: TodoTemplateProps) {
         <FilterButton $active={filter === 'completed'} onClick={() => handleFilterChange('completed')}>완료됨</FilterButton>
       </FilterBar>
       <TodoList todos={todos} setTodos={setTodos} filter={filter} />
-      <TodoCreate todos={todos} setTodos={setTodos} />
+      <TodoCreate setTodos={setTodos} />
     </TodoTemplateBlock>
   );
 }

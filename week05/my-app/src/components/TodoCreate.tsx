@@ -3,9 +3,7 @@ import styled from "styled-components";
 import { FaPlus } from "react-icons/fa";
 import { Todo } from "@components/TodoTemplate";
 
-// TodoCreate 컴포넌트의 props 타입 정의
 interface TodoCreateProps {
-  todos: Todo[];
   setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
 }
 
@@ -66,7 +64,7 @@ const AddButton = styled.button`
   }
 `;
 
-function TodoCreate({ todos, setTodos }: TodoCreateProps) {
+function TodoCreate({ setTodos }: TodoCreateProps) {
   const [text, setText] = useState<string>("");
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
