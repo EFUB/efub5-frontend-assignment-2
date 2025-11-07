@@ -1,0 +1,220 @@
+.list-bg {
+  background-color: #f9f9f9;
+  padding: 20px;
+  min-height: 100vh; 
+}
+
+.list-item {
+  background-color: white;
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.list-item:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.list-item a[href*="detail"] {
+  flex-grow: 1;
+  text-decoration: none;
+  color: inherit;
+}
+
+.list-item h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.list-item p {
+  color: #888;
+  margin: 0;
+  padding: 0 15px; 
+}
+.list-item span,
+.list-item a[href*="edit"] {
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: transform 0.2s;
+}
+.list-item span:hover,
+.list-item a[href*="edit"]:hover {
+  transform: scale(1.2);
+}
+.p-20 {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.p-20 input[type="text"],
+.p-20 input[type="password"],
+.p-20 input:not([type]), 
+.p-20 textarea {
+    width: 100%; 
+    padding: 12px;
+    margin-bottom: 15px; 
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box; 
+    display: block;
+}
+.p-20 button {
+    background-color: #0070f3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.p-20 button:hover {
+  background-color: #005bb5;
+}
+.p-20 textarea {
+  min-height: 200px;
+  resize: vertical; 
+}
+body {
+  margin: 0;
+  background-color: #f4f4f4; 
+  color: #333;
+}
+.nav-bar {
+  padding: 15px 30px;
+  background: white;
+  border-bottom: 1px solid #eaeaea;
+  display: flex;
+  align-items: center;
+  gap: 20px; 
+}
+
+.nav-bar a {
+  text-decoration: none;
+  color: #555;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.nav-bar a:hover {
+  color: #0070f3;
+}
+
+.nav-bar .nav-buttons {
+  margin-left: auto; 
+  display: flex;
+  gap: 8px;
+}
+
+.nav-bar button {
+  padding: 6px 12px;
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.nav-bar button:hover {
+  background: #e0e0e0;
+}
+.p-20 {
+  max-width: 500px; 
+  margin: 40px auto; 
+  padding: 30px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.p-20 h4 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.p-20 input[type="text"],
+.p-20 input[type="password"],
+.p-20 textarea {
+  width: 100%; 
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box; 
+}
+
+.p-20 button {
+  width: 100%; 
+  padding: 12px;
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.p-20 button:hover {
+  background-color: #005bb5;
+}
+.home-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 40px;
+  text-align: center;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.home-container h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.home-container p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+.home-link {
+  display: block; 
+  padding: 15px;
+  margin-bottom: 12px;
+  background-color: #0070f3;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: background-color 0.2s;
+}
+
+.home-link:hover {
+  background-color: #005bb5;
+}
+
+.home-link.register-link {
+  background-color: #333;
+}
+.home-link.register-link:hover {
+  background-color: #555;
+}
