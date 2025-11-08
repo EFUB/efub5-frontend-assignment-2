@@ -1,0 +1,84 @@
+.container {
+  min-height: 100vh;
+  background-color: #f9f9f9;
+  padding: 2rem 0;
+}
+
+.article {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.header {
+  background: white;
+  border-radius: 12px 12px 0 0;
+  padding: 2rem;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.title {
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #333;
+  line-height: 1.4;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.date {
+  color: #999;
+}
+
+.content {
+  background: white;
+  border-radius: 0 0 12px 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  line-height: 1.7;
+  font-size: 1.05rem;
+  color: #333;
+}
+
+.content p {
+  margin-bottom: 1.5rem;
+  white-space: pre-wrap;
+}
+
+.errorMessage {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 8px;
+  color: #721c24;
+  text-align: center;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem 0;
+  }
+  
+  .article {
+    padding: 0 1rem;
+  }
+  
+  .header,
+  .content {
+    padding: 1.5rem;
+  }
+  
+  .title {
+    font-size: 1.8rem;
+  }
+}

@@ -1,0 +1,134 @@
+.container {
+  min-height: 100vh;
+  background-color: #f9f9f9;
+}
+
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.description {
+  font-size: 1.2rem;
+  text-align: center;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.quickActions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.actionButton {
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.actionButton:hover {
+  background-color: #005bb5;
+}
+
+.recentPosts {
+  background: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sectionTitle {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+  border-bottom: 2px solid #0070f3;
+  padding-bottom: 0.5rem;
+}
+
+.loading {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+}
+
+.postList {
+  display: grid;
+  gap: 1rem;
+}
+
+.postCard {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.postCard:hover {
+  background: #e9ecef;
+  border-color: #0070f3;
+  transform: translateY(-2px);
+}
+
+.postTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.postContent {
+  color: #666;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.postDate {
+  font-size: 0.9rem;
+  color: #999;
+  font-style: italic;
+}
+
+.noPost {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  padding: 2rem;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .main {
+    padding: 1rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .quickActions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .actionButton {
+    width: 200px;
+  }
+}

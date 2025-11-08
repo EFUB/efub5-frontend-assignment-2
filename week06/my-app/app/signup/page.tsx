@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Navbar from "@/components/Navbar";
 import styles from "./page.module.css";
 
 export default function SignupPage() {
@@ -29,6 +30,7 @@ export default function SignupPage() {
         setSuccess("회원 가입이 완료되었습니다!");
         setUsername("");
         setPassword("");
+        setTimeout(() => router.push("/"), 2000);
       } else {
         const data = await response.json();
         setError(data.message || "회원 가입에 실패했습니다.");
@@ -39,34 +41,48 @@ export default function SignupPage() {
   };
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>회원 가입</h1>
-      <form onSubmit={handleSignup} className={styles.form}>
-        <input
-          type="text"
-          placeholder="아이디"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-          className={styles.input}
-        />
-        <input
-          type="password"
-          placeholder="비밀번호"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-          className={styles.input}
-        />
-        <button type="submit" className={styles.button}>가입하기</button>
-      </form>
-      {error && <p className={styles.error}>{error}</p>}
-      {success && <p className={styles.success}>{success}</p>}
-      <div className={styles.navigation}>
-        <button onClick={() => router.back()} className={styles.button}>뒤로 가기</button>
-        <button onClick={() => router.forward()} className={styles.button}>앞으로 가기</button>
-        <button onClick={() => router.refresh()} className={styles.button}>새로 고침</button>
+    <>
+      <Navbar />
+      <div className={styles.container}>
+        <div className={styles.formWrapper}>
+          <h1 className={styles.title}>회원 가입</h1>
+          
+          <form onSubmit={handleSignup} className={styles.form}>
+            <div className={styles.inputGroup}>
+              <label htmlFor="username" className={styles.label}>아이디</label>
+              <input
+                type="text"
+                id="username"
+                placeholder="아이디를 입력해주세요"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+                className={styles.input}
+              />
+            </div>
+            
+            <div className={styles.inputGroup}>
+              <label htmlFor="password" className={styles.label}>비밀번호</label>
+              <input
+                type="password"
+                id="password"
+                placeholder="비밀번호를 입력해주세요"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                className={styles.input}
+              />
+            </div>
+            
+            <button type="submit" className={styles.submitButton}>
+              회원가입
+            </button>
+          </form>
+          
+          {error && <p className={styles.error}>{error}</p>}
+          {success && <p className={styles.success}>{success}</p>}
+        </div>
       </div>
-    </div>
+    </>
   );
 }

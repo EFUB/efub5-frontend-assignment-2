@@ -2,6 +2,8 @@ import type Post from '@/models/post';
 import type { WithId } from 'mongodb';
 import axios from 'axios';
 import ListItem from './ListItem';
+import Navbar from '@/components/Navbar';
+import styles from './page.module.css';
 
 const List = async () => {
   const readPostList = async (): Promise<WithId<Post>[]> => {
@@ -19,9 +21,17 @@ const List = async () => {
   const result: WithId<Post>[] = await readPostList();
 
   return (
-    <div className='list-bg'>
-      <ListItem result={result} />
-    </div>
+    <>
+      <Navbar />
+      <div className={styles.container}>
+        <div className={styles.header}>
+          <h1 className={styles.title}>게시글 목록</h1>
+        </div>
+        <div className={styles.content}>
+          <ListItem result={result} />
+        </div>
+      </div>
+    </>
   );
 };
 
