@@ -1,0 +1,4 @@
+- types 폴더 안 type.ts 파일에 공통적으로 사용하는 Todo를 interface로 정의하여 코드를 간단하게 작성
+- API 키는 .env에 NEXT_PUBLIC을 붙여 작성
+- 변수마다 type을 미리 설정해 주어야 함
+- useState를 prop으로 받아올 경우에는 React.Dispatch<React.SetStateAction<Todo[]>> 를 type으로 작성
