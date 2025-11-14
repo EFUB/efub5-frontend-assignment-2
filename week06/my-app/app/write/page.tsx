@@ -1,7 +1,13 @@
 import Navbar from '@/components/Navbar';
 import styles from './page.module.css';
+import { authOptions } from '@/pages/api/auth/[...nextauth]';
+import { getServerSession } from 'next-auth';
 
-const Write = () => {
+const Write = async () => {
+  let session = await getServerSession(authOptions);
+  if (session) {
+    console.log("Server: ", session);
+  }
   return (
     <>
       <Navbar />
