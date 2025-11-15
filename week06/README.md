@@ -1,0 +1,95 @@
+# 📝 EFUB Week 06 - Next.js 게시판 프로젝트 (1)
+
+Next.js 16을 기반으로 **게시글 CRUD 및 임시 회원가입 기능**을 구현한 연습 프로젝트입니다.  
+App Router와 Pages Router 중 **Pages Router를 이용한 API 라우팅 방식**을 사용하여 게시글 데이터 및 사용자 데이터를 MongoDB에 저장하도록 구현했습니다.
+
+---
+
+
+https://github.com/user-attachments/assets/d202ac61-10bf-4530-8eaf-0d8f9bc82176
+
+
+
+## 🚀 기술 스택
+
+| 분야            | 사용 기술                                      |
+| --------------- | ---------------------------------------------- |
+| Framework       | Next.js 13 (App + Pages Router 혼합)           |
+| Language        | TypeScript                                     |
+| Styling         | Tailwind CSS                                   |
+| Database        | MongoDB Atlas                                  |
+| State / Routing | Next.js useRouter / Link                       |
+| 기타            | ESLint + Prettier, prettier-plugin-tailwindcss |
+
+---
+
+## ✨ 주요 기능
+
+### 1) 게시판 기능 (CRUD)
+
+- 게시글 작성 (`/write`)
+- 게시글 목록 조회 (`/list`)
+- 게시글 상세 조회 (`/detail/[id]`)
+- 게시글 수정 (`/edit/[id]`)
+- 게시글 삭제
+
+### 2) 임시 회원가입 기능
+
+- `/signup` 페이지에서 **아이디 / 비밀번호 입력**
+- DB의 `user` 컬렉션에 저장
+- **이미 존재하는 아이디일 경우 가입 제한**
+
+> ※ 학습 목적상 비밀번호는 **암호화하지 않고 저장** (실서비스에서는 bcrypt 필요)
+
+### 3) Navigation 기능
+
+- 페이지 상단 공통 Header 컴포넌트
+- 뒤로가기 및 새로고침 버튼 (next/navigation 사용)
+
+---
+
+## 📂 프로젝트 구조
+```
+src
+├─ app
+│ ├─ layout.tsx # 공통 레이아웃 & Header
+│ ├─ page.tsx # 메인 페이지
+│ ├─ list/page.tsx # 게시글 목록
+│ ├─ detail/[id]/page.tsx # 게시글 상세조회
+│ ├─ edit/[id]/page.tsx # 게시글 수정
+│ ├─ write/page.tsx # 게시글 작성
+│ ├─ signup/page.tsx # 회원가입 페이지
+│ └─ components
+│ └─ ListItem.tsx # 목록 UI & 삭제 버튼 동작
+│
+├─ pages/api # Pages Router 기반 API
+│ ├─ post
+│ │ ├─ create.ts
+│ │ ├─ delete.ts
+│ │ ├─ edit.ts
+│ │ ├─ readDetail.ts
+│ │ └─ readList.ts
+│ └─ signup.ts # 회원가입 API
+│
+├─ utils
+│ └─ database.ts # MongoDB 연결 관리
+└─ models
+└─ post.ts # 게시글 타입 정의
+```
+
+---
+
+## 💡 트러블슈팅 & 배운 점
+
+- `pages/api` 에서는 `req.json()` 대신 `JSON.parse(req.body)` 를 사용해야 한다는 점
+- Tailwind CSS의 `@layer base` / `@layer components` 를 활용하여 전역 버튼 스타일 적용
+- ESLint와 Prettier, 그리고 Tailwind class 자동 정렬 플러그인을 함께 사용할 때 발생하는 **포맷 충돌 이슈**를 해결  
+- `eslint-plugin-simple-import-sort` 로 import 정렬을 맡기고  
+  `prettier-plugin-tailwindcss` 로 className 정렬을 맡겨 **역할을 명확히 분리**  
+---
+
+## 📌 앞으로 개선할 점
+- 비밀번호 암호화 (`bcrypt`)
+- 로그인 기능
+
+
