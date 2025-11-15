@@ -8,6 +8,10 @@ const handler: NextApiHandler = async (req, res) => {
 
   if(session){
     req.body.author = session.user?.email;
+    req.body.likes = []; // 좋아요 배열 초기화
+    req.body.likeCount = 0; // 좋아요 수 초기화
+    req.body.comments = []; // 댓글 배열 초기화
+    req.body.createdAt = new Date(); // 생성일 추가
   }
   console.log(req.body);
   

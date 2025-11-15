@@ -33,8 +33,18 @@
   font-size: 0.9rem;
 }
 
+.author {
+  color: #666;
+}
+
 .date {
   color: #999;
+}
+
+.actions {
+  background: white;
+  padding: 1rem 2rem;
+  border-top: 1px solid #e9ecef;
 }
 
 .content {

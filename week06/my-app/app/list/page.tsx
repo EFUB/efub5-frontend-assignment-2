@@ -1,7 +1,7 @@
 import type Post from '@/models/post';
 import type { WithId } from 'mongodb';
 import axios from 'axios';
-import ListItem from './ListItem';
+import ListWrapper from './ListWrapper';
 import Navbar from '@/components/Navbar';
 import styles from './page.module.css';
 
@@ -28,7 +28,7 @@ const List = async () => {
           <h1 className={styles.title}>게시글 목록</h1>
         </div>
         <div className={styles.content}>
-          <ListItem result={result} />
+          <ListWrapper result={result} />
         </div>
       </div>
     </>
