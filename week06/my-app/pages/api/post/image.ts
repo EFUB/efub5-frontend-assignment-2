@@ -1,35 +1,42 @@
+import type { NextApiRequest, NextApiResponse } from "next";
 import { S3Client } from "@aws-sdk/client-s3";
 import { createPresignedPost } from "@aws-sdk/s3-presigned-post";
-import { NextApiRequest, NextApiResponse } from "next";
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
-  const s3 = new S3Client({
-    region: "ap-northeast-2",
-    credentials: {
-      accessKeyId: process.env.ACCESS_KEY!,
-      secretAccessKey: process.env.SECRET_KEY!,
-    },
-  });
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  if (req.method !== "POST") {
+    return res.status(405).json({ error: "Method not allowed" });
+  }
 
-  const file = req.query.file as string;
+  try {
+    const { filename, fileType } = req.body;
 
-  // ✔ Content-Type 조건 제거
-  // ✔ Fields에서 Content-Type 제거
-  // ✔ Key만 사용
-  const { url, fields } = await createPresignedPost(s3, {
-    Bucket: process.env.BUCKET_NAME!,
-    Key: file,
-    Conditions: [
-      ["content-length-range", 0, 10485760], // 10MB
-      ["starts-with", "$Content-Type", ""],
-    ],
-    Expires: 60,
-  });
+    const client = new S3Client({
+      region: "ap-northeast-2",
+      credentials: {
+        accessKeyId: process.env.AWS_ACCESS_KEY!,
+        secretAccessKey: process.env.AWS_SECRET_KEY!,
+      },
+    });
 
-  console.log("S3 presigned URL =>", { url, fields });
+    const key = `uploads/${filename}`;
 
-  res.status(200).json({ url, fields });
+    const { url, fields } = await createPresignedPost(client, {
+      Bucket: "seminar-test-s3",
+      Key: key,
+      Fields: {
+        key,
+        "Content-Type": fileType,
+      },
+      Conditions: [["starts-with", "$Content-Type", ""]],
+      Expires: 60,
+    });
+
+    return res.status(200).json({ url, fields });
+  } catch (err: any) {
+    console.error("S3 Presigned Error:", err);
+    return res.status(500).json({
+      error: "S3 Presigned Failed",
+      details: err.message,
+    });
+  }
 }

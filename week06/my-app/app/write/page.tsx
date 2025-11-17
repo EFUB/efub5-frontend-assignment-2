@@ -73,13 +73,9 @@ export default function Write() {
   const [src, setSrc] = useState("");
 
   const handlePost = () => {
-    const postContent = {
-      title: title,
-      content: content,
-      imgUrl: src,
-    };
+    const postContent = { title, content, imgUrl: src };
 
-    fetch("/api/post/create", {
+    fetch("/api/post/new", {
       method: "POST",
       body: JSON.stringify(postContent),
     }).then(() => {
@@ -90,14 +86,12 @@ export default function Write() {
   return (
     <div className="p-20">
       <h4>글작성</h4>
-
       <input
         name="title"
         placeholder="글 제목"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
-
       <input
         name="content"
         placeholder="내용"
@@ -105,58 +99,54 @@ export default function Write() {
         onChange={(e) => setContent(e.target.value)}
       />
 
-      {/* 파일 업로드 */}
+      {/* presigned POST 방식 S3 업로드 */}
       <input
         type="file"
         accept="image/*"
         onChange={async (e) => {
-          const file = e.target.files?.[0];
+          const file = e.target.files[0];
           if (!file) return;
 
-          const safeFilename = `${Date.now()}-${file.name.replace(
-            /[^a-zA-Z0-9.]/g,
-            "_"
-          )}`;
+          const filename = `${Date.now()}-${file.name}`;
 
-          // presigned POST 요청
-          const response = await fetch("/api/post/image?file=" + safeFilename);
-          const res = await response.json(); // { url, fields }
+          // 1) 서버에서 presigned POST 정보 가져오기 (fileType은 URL params 대신 body로!)
+          const res = await fetch("/api/post/image", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              filename,
+              fileType: file.type, // fields.Content-Type 생성될 때 필요함
+            }),
+          });
 
-          // FormData 생성
+          const presigned = await res.json();
+
+          // 2) FormData 만들기
           const formData = new FormData();
-          Object.entries(res.fields).forEach(([key, value]) => {
+          Object.entries(presigned.fields).forEach(([key, value]) => {
             formData.append(key, value as string);
           });
 
-          // ⛔ 반.드.시 마지막에 추가해야 함!
+          // 3) 마지막에 file 추가 (Content-Type 포함됨)
           formData.append("file", file);
 
-          // 디버그 로그
-          for (const pair of formData.entries()) {
-            console.log(pair[0], pair[1]);
-          }
-
-          // S3로 업로드
-          const uploadResult = await fetch(res.url, {
+          // 4) S3에 업로드
+          const upload = await fetch(presigned.url, {
             method: "POST",
             body: formData,
           });
 
-          console.log(uploadResult);
-
-          if (uploadResult.ok) {
-            const bucketName =
-              process.env.NEXT_PUBLIC_BUCKET_NAME || "seminar-test-s3";
-            setSrc(
-              `https://${bucketName}.s3.ap-northeast-2.amazonaws.com/${res.fields.key}`
-            );
-          } else {
-            console.log("실패");
+          if (upload.ok) {
+            const imgUrl = `${presigned.url}/${presigned.fields.key}`;
+            setSrc(imgUrl);
+          }
+          else {
+            console.error("S3 Upload Failed");
           }
         }}
       />
 
-      {src && <img src={src} alt="업로드된 이미지" />}
+      {src && <img src={src} alt="Uploaded" />}
 
       <button type="submit" className="button-style" onClick={handlePost}>
         버튼
