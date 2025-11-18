@@ -1,0 +1,59 @@
+.registerPage {
+  max-width: 500px;
+  margin: 80px auto;
+  padding: 40px;
+  background-color: #ffffff;
+  border: 1px solid #dbe2ef;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #112d4e;
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+/* form 기본 설정 */
+.registerPage form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* input 스타일 */
+.registerPage input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.registerPage input:focus {
+  box-shadow: 0 0 0 1px rgba(63, 114, 175, 0.15);
+  outline: none;
+}
+
+/* 버튼 스타일 */
+.registerPage button {
+  width: 100%;
+  padding: 12px;
+  background-color: #112d4e;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.registerPage button:hover {
+  background-color: #8fabd4;
+}

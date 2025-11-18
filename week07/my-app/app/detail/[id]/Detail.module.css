@@ -1,0 +1,78 @@
+.detailPage {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 24px 28px;
+  background-color: #ffffff;
+  border: 1px solid #dbe2ef;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #112d4e;
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #8fabd4;
+  margin-bottom: 12px;
+}
+
+.content {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #333;
+  white-space: pre-line;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.backBtn {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 1px solid #8fabd4;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #8fabd4;
+  font-size: 1rem;
+  font-weight: 400;
+  transition: 0.2s ease;
+}
+
+.backBtn:hover {
+  background-color: #8fabd4;
+  color: #efece3;
+}
+
+.likeBtn {
+  background-color: #efece3;
+  color: #8fabd4;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 1rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: 0.2s;
+  margin-top: 20px;
+}
+
+.likeBtn:hover {
+  background-color: #8fabd4;
+  color: #efece3;
+}
+
+.likeBtn:disabled {
+  background-color: #dbe2ef;
+  color: #666;
+}

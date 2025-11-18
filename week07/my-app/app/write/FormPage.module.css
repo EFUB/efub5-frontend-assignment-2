@@ -1,0 +1,77 @@
+.formPage {
+  max-width: 700px;
+  margin: 60px auto;
+  padding: 32px 40px;
+  background-color: #ffffff;
+  border: 1px solid #dbe2ef;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #112d4e;
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.formPage form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.formPage input[type='text'],
+.formPage textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+.formPage input[type='text']:focus,
+.formPage textarea:focus {
+  outline: none;
+}
+
+.formPage textarea {
+  height: 180px;
+  resize: none;
+}
+
+.formPage button {
+  width: 100%;
+  padding: 12px;
+  background-color: #112d4e;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.formPage button:hover {
+  background-color: #8fabd4;
+}
+
+.loginBtn {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 6px;
+  background-color: #112d4e;
+  color: white;
+  font-weight: 600;
+  text-align: center;
+  transition: background-color 0.2s ease;
+}
+
+.loginBtn:hover {
+  background-color: #3f72af;
+}

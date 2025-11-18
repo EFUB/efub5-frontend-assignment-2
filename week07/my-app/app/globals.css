@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif; /* 사용 중인 전역 폰트 */
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.loginbtn {
+  background-color: #efece3;
+  color: black;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.loginbtn:hover {
+  background-color: #8fabd4;
+  color: #efece3;
+}
