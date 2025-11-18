@@ -83,15 +83,31 @@
 
 .postMeta {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   border-top: 1px solid #f0f0f0;
   padding-top: 1rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.postAuthor {
+  color: #666;
+  font-size: 0.9rem;
 }
 
 .postDate {
   color: #999;
   font-size: 0.9rem;
+}
+
+.postLikes,
+.postComments {
+  color: #666;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
 }
 
 .emptyState {

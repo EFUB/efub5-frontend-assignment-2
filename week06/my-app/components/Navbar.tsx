@@ -12,27 +12,27 @@ export default function Navbar() {
         <h1 className={styles.logo} onClick={() => router.push("/")}>
           게시판
         </h1>
-        
+
         <div className={styles.navLinks}>
-          <button 
+          <button
             className={styles.navButton}
             onClick={() => router.push("/")}
           >
             홈
           </button>
-          <button 
+          <button
             className={styles.navButton}
             onClick={() => router.push("/list")}
           >
             게시글 목록
           </button>
-          <button 
+          <button
             className={styles.navButton}
             onClick={() => router.push("/write")}
           >
             글 작성
           </button>
-          <button 
+          <button
             className={styles.navButton}
             onClick={() => router.push("/signup")}
           >
@@ -41,21 +41,21 @@ export default function Navbar() {
         </div>
 
         <div className={styles.navigationControls}>
-          <button 
+          <button
             className={styles.controlButton}
             onClick={() => router.back()}
             title="뒤로 가기"
           >
             ← 뒤로
           </button>
-          <button 
+          <button
             className={styles.controlButton}
             onClick={() => router.forward()}
             title="앞으로 가기"
           >
             앞으로 →
           </button>
-          <button 
+          <button
             className={styles.controlButton}
             onClick={() => router.refresh()}
             title="새로 고침"
@@ -67,3 +67,4 @@ export default function Navbar() {
     </nav>
   );
 }
+

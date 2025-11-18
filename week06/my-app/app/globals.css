@@ -3,7 +3,7 @@ a {
   color: black;
 }
 
-.list-item{
+.list-item {
   background: white;
   border-radius: 10px;
   padding: 20px;
@@ -11,4 +11,33 @@ a {
   box-shadow: rgb(224, 224, 244) 0px 2px 4px 0px;
   opacity: 1;
   transition: all 1s;
+}
+
+.navbar {
+  background: white;
+  padding: 20px;
+}
+
+.navbar a {
+  margin-right: 10px;
+  text-decoration: none;
+  color: black;
+}
+
+.logo {
+  font-weight: bold;
+}
+
+.loginbtn {
+  background-color: #dcdcdc;
+  color: black;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.loginbtn:hover {
+  background-color: #999999;
 }
