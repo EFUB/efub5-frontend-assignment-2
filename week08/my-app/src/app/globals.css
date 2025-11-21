@@ -1,0 +1,356 @@
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.list-item {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 5px;
+  box-shadow: rgb(224, 224, 224) 0px 2px 4px 0px;
+  opacity: 1;
+  transition: all 1s;
+}
+
+.list-item-content {
+  background: white;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar {
+  background: white;
+  padding: 20px;
+  gap: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar a {
+  margin-right: 10px;
+  text-decoration: none;
+  color: black;
+}
+
+.logo
+{
+font-weight: bold;
+}
+
+.loginbtn {
+background-color: #fcfcfc;
+color: black;
+border: 1px solid #ddd;
+margin-left: 30px;
+padding: 8px 16px;
+border-radius: 6px;
+cursor: pointer;
+transition: background-color 0.2s ease;
+}
+
+.loginbtn:hover
+{
+  background-color: #999999;
+}
+
+.line {
+  height: 2px;
+  background: lightgrey;
+}
+
+.post-container {
+  width: 70px;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background: white;
+}
+
+.btn-container {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.like-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.delete-button {
+  color: black;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+}
+
+.postdetail-container {
+  padding: 10px 20px;
+  margin-bottom: 20px;
+}
+
+.likeBtn-container {
+  width: 95vw;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.comment-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+.write-btn {
+  width: 50px;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid lightgrey;
+  margin-right: 7px;
+}
+
+.btns-container {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.delete-btn {
+  margin-left: 8px;
+  cursor: pointer;
+  border: none;
+  background: #fff;
+}
+
+.writeForm-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+}
+
+.write-title {
+  border: 1px solid lightgrey;
+  border-radius: 8px;
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+.write-content {
+  border: 1px solid lightgrey;
+  border-radius: 8px;
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+/* Light Mode */
+body[data-theme="light"] {
+  background: white;
+  color: black;
+}
+
+/* Dark Mode */
+body[data-theme="dark"] {
+  background: black;
+  color: white;
+}
+
+/* =========================================
+   Global Dark Mode Base
+========================================= */
+body[data-theme="dark"] {
+  background: #1a1a1a;
+  color: white;
+}
+
+/* =========================================
+   List Items
+========================================= */
+body[data-theme="dark"] .list-item {
+  background: #272727;
+  color: white;
+  box-shadow: rgba(50, 50, 50, 0.5) 0px 2px 4px;
+}
+
+body[data-theme="dark"] .list-item-content {
+  background: #272727;
+  color: white;
+}
+
+/* =========================================
+   Navbar
+========================================= */
+body[data-theme="dark"] .navbar {
+  background: #222;
+  color: white;
+}
+
+body[data-theme="dark"] .navbar a {
+  color: white;
+}
+
+body[data-theme="dark"] .loginbtn {
+  background-color: #444;
+  color: white;
+  border: 1px solid #555;
+}
+
+body[data-theme="dark"] .loginbtn:hover {
+  background-color: #666;
+}
+
+/* =========================================
+   Line Divider
+========================================= */
+body[data-theme="dark"] .line {
+  background: #555;
+}
+
+/* =========================================
+   Post Container & Buttons
+========================================= */
+body[data-theme="dark"] .post-container {
+  background: #272727;
+  color: white;
+}
+
+body[data-theme="dark"] .btn-container {
+  background: transparent;
+}
+
+body[data-theme="dark"] .like-button {
+  color: white;
+}
+
+body[data-theme="dark"] .delete-btn {
+  color: white;
+  background: #272727;
+}
+
+/* =========================================
+   Post Detail
+========================================= */
+body[data-theme="dark"] .postdetail-container {
+  background: #272727;
+  color: white;
+}
+
+/* =========================================
+   Like Button Container
+========================================= */
+body[data-theme="dark"] .likeBtn-container {
+  color: white;
+}
+
+/* =========================================
+   Comments
+========================================= */
+body[data-theme="dark"] .comment-container {
+  color: white;
+}
+
+body[data-theme="dark"] .comment-form {
+  color: white;
+}
+
+/* =========================================
+   Write Form (inputs + textarea)
+========================================= */
+body[data-theme="dark"] .writeForm-container {
+  color: white;
+}
+
+body[data-theme="dark"] .write-title,
+body[data-theme="dark"] .write-content {
+  background: #333;
+  color: white;
+  border: 1px solid #555;
+}
+
+body[data-theme="dark"] .write-btn {
+  background: #333;
+  color: white;
+  border: 1px solid #555;
+}
+
+body[data-theme="dark"] .delete-btn {
+  color: white;
+}
+
+.newImage {
+  width: 200px;
+  height: 260px;
+  border: none;
+}
+
+.write-content-container {
+  display: flex;
+  gap: 20px;
+}
+
+.input-container {
+  border: none;
+  outline: none;
+}
+
+body[data-theme="dark"] .input-container {
+  background: grey;
+  color: white;
+}
+
+body[data-theme="dark"] .input-container::placeholder {
+  color: white;
+}
+
+.button-style {
+  border: none;
+  border-radius: 7px;
+}
+
+body[data-theme="dark"] .button-style {
+  background: grey;
+}
+
+.write-big-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding:20px;
+}
+
+.detail-big-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+  padding-top: 0;
+}
+
+.small-title {
+  font-size: 20px;
+  padding-left: 20px;
+}
